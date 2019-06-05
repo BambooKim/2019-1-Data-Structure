@@ -41,9 +41,11 @@ int main(int argc, char* argv[]){
 			ci >> id >> name;
 			
 			agencies.push_back(Agency(name, id));
-		}else if(command.find("Exit") != string::npos){
+		}
+		else if(command.find("Exit") != string::npos){
 			exit(0);
-		}else if(command.find("List services from") != string::npos){
+		}
+		else if(command.find("List services from") != string::npos){
 			string name;
 			
 			ci.ignore(std::numeric_limits<std::streamsize>::max(), ' ');	// Just seek after "List services from" in stream	
@@ -54,15 +56,18 @@ int main(int argc, char* argv[]){
 			cout << char(27) << "[0;36m";
 			services.listFrom(services.find(Service(name)));
 			cout << char(27) << "[0;0;0m";
-		}else if(command.find("List agency") != string::npos){
+		}
+		else if(command.find("List agency") != string::npos){
 			cout << char(27) << "[0;36m";
 			cout << agencies << endl;
 			cout << char(27) << "[0;0;0m";
-		}else if(command.find("List services") != string::npos){
+		}
+		else if(command.find("List services") != string::npos){
 			cout << char(27) << "[0;36m";
 			services.list();
 			cout << char(27) << "[0;0;0m";
-		}else if(command.find("Add new service") != string::npos){
+		}
+		else if(command.find("Add new service") != string::npos){
 			string name;
 
 			ci.ignore(std::numeric_limits<std::streamsize>::max(), ' ');	// Just seek after "Add new service" in stream	
@@ -71,7 +76,8 @@ int main(int argc, char* argv[]){
 			ci >> name;
 			
 			services.push_front(Service(name));
-		}else if(command.find("Add subservice") != string::npos){
+		}
+		else if(command.find("Add subservice") != string::npos){
 			string parentName;
 			string childName;
 
@@ -98,7 +104,8 @@ int main(int argc, char* argv[]){
 				services.addChild(ptr1, ptr2); 
 			}
 			
-		}else if(command.find("Add parent") != string::npos){
+		}
+		else if(command.find("Add parent") != string::npos){
 			string parentName;
 			string childName;
 
@@ -125,7 +132,8 @@ int main(int argc, char* argv[]){
 			}
 
 			services.addParent(ptr1, ptr2);			
-		}else if(command.find("Delete") != string::npos){
+		}
+		else if(command.find("Delete") != string::npos){
 			string service;
 
 			ci.ignore(std::numeric_limits<std::streamsize>::max(), ' ');	// Just seek after "Delete" in stream	
@@ -139,7 +147,8 @@ int main(int argc, char* argv[]){
 			}
 			
 			services.remove(ptr);
-		}else if(command.find("Request") != string::npos){
+		}
+		else if(command.find("Request") != string::npos){
 			string service;
 			string agency;
 			string username;
@@ -175,7 +184,8 @@ int main(int argc, char* argv[]){
 			}
 
 			agencies[i].addRequest(Request(ptr->getData(), username));
-		}else if(command.find("Get requests") != string::npos){
+		}
+		else if(command.find("Get requests") != string::npos){
 			string agency;
 
 			ci.ignore(std::numeric_limits<std::streamsize>::max(), ' ');	// Just seek after "Get requests" in stream	
@@ -194,7 +204,8 @@ int main(int argc, char* argv[]){
 			}
 
 			cout << agencies[i].getRequest() << endl;
-		}else{
+		}
+		else{
 			cout << char(27) << "[0;31m";
 			cout << "404 Not Found" << endl;
 			cout << char(27) << "[0;0;0m";

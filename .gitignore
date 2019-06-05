@@ -26,3 +26,13 @@
 *.exe
 *.out
 *.app
+
+*.pdb
+*.idb
+*.log
+*.lastbuildstate
+
+# Debug Folder
+Debug
+
+.vs

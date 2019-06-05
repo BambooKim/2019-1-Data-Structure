@@ -5,7 +5,7 @@
 template<typename T>
 class MaxHeap{
 	public:
-		MaxHeap(int capacity);
+		MaxHeap(int capacity = 10);
 		bool isEmpty();
 		const T& top();
 		void push(const T& input);
@@ -17,7 +17,7 @@ class MaxHeap{
 };
 
 template<typename T>
-MaxHeap<T>::MaxHeap(int capacity = 10){
+MaxHeap<T>::MaxHeap(int capacity){
 	if(capacity < 1) throw std::invalid_argument("Capacity must be >= 1");
 	mCapacity = capacity;
 	mHeapSize = 0;

@@ -49,8 +49,8 @@ public:
 	void pop_back();
 	T& front();
 	T& back();
-	typename List<T>::Iterator begin();
-	typename List<T>::Iterator end();
+	//typename List<T>::Iterator begin();
+	//typename List<T>::Iterator end();
 	T& at(int index) const;
 	T& operator[](int index) const;
 	int size() const;
@@ -61,6 +61,7 @@ public:
 
 	class Iterator {
 	public:
+		Iterator();
 		Iterator(Node* startNode, Node* start, Node* finish);
 		Iterator(const Iterator &orig);
 
@@ -116,6 +117,13 @@ T& List<T>::Node::getObject(){
 
 //===================================================
 //------------------List<T>::Iterator----------------
+
+template<class T>
+List<T>::Iterator::Iterator() {
+	mStart = NULL;
+	mCurrent = NULL;
+	mFinish = NULL;
+}
 
 template<class T>
 List<T>::Iterator::Iterator(typename List<T>::Node* startNode, typename List<T>::Node* start, typename List<T>::Node* finish){
@@ -237,7 +245,7 @@ T& List<T>::back(){
 	}
 	return mFinish->getObject();
 }
-
+/*
 template<class T>
 typename List<T>::Iterator List<T>::begin(){
 	return Iterator(mStart, mStart, mFinish);
@@ -248,7 +256,7 @@ typename List<T>::Iterator List<T>::end()
 {
 	return Iterator(mFinish, mStart, mFinish);
 }
-
+*/
 template<class T>
 void List<T>::push_front(const T& object){
 	mSize++;
