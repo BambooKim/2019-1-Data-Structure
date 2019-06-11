@@ -68,6 +68,7 @@ bool Request::operator==(const Request& r)const{
 
 std::ostream& operator<<(std::ostream& os, const Request& r){
 	os << "User: " << r.mUsername << std::endl;
+	#pragma warning(suppress : 4996)
 	os << "Time: " << asctime(localtime(&r.mTime));
 	os << "Service: " << r.mService.getName();
 	return os;
