@@ -1,4 +1,4 @@
 # Data-Structure
-a Set of DS home works and projects
-## who can use it
-All the student who needs this homwork as a help feel free to use it
+2019학년도 1학기 경희대학교 자료구조 프로젝트 분석
+## Thanks to....
+taratandel https://github.com/taratandel/Data-Structure
